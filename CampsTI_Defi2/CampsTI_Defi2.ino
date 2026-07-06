@@ -32,22 +32,26 @@ void loop()
     // Lecture de la valeur du capteur
     int ecgValue = analogRead(ECG_PIN);
 
+    Serial.print("Initial ecgValue: " + String(ecgValue));
+
     // Décision de la pince ouverte ou fermee
     if (ecgValue > 2048)
     {
-        ecgValue = 1
+        ecgValue = 1;
     }
     else
     {
-        ecgValue = 0
+        ecgValue = 0;
     }
+
+    Serial.println("    Decision de l'action: " + String(ecgValue));
 
     /* ---------------- À FAIRE ----------------
           Envoie la commande ecg_cmd au MOTEUR
     --------------------------------------------
     */
 
-    delay(50)
+    delay(50);
 }
 
 /*
