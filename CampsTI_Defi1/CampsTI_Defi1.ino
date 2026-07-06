@@ -22,29 +22,19 @@ void setup() {
 }
 
 void loop() {
-  // Variable entre 2 lectures du capteur
-  static int tAdc = 0;
-
   // Variable de commande moteur
-  static int pot1_cmd = 0;
+  int pot1_cmd = 0;
   
-  // Régulation du temps entre 2 lectures / actions
-  if (millis() - tAdc >= 50) {
-    tAdc = millis(); // Assignation du temps de la dernière lecture
+  // Lecture de la valeur du capteur
+  int pot1Value = analogRead(POT_BASE_PIN);
+  
+  // Limiter l'action entre 0 et 180 degrés du moteur
+  pot1_cmd = map(pot1Value, 0, 4095, 0, 180);
 
-    // Lecture de la valeure du capteur
-    int pot1Value = analogRead(POT_BASE_PIN);
-   
-    // Limiter l'action entre 50 et 180 degrés du moteur
-    pot1_cmd = map(pot1Value, 0, 4095, 0, 180);
-
-    Serial.print("Potentiometre: ");
-    Serial.print(pot1Value);
-    Serial.print(", Angle: ");
-    Serial.println(pot1_cmd);s
-  }
+  // Afficher les valeurs sur le moniteur série
+  Serial.println("Potentiometre: " + String(pot1Value) + ", Angle: " + String(pot1_cmd));
 
   // Envoie de la commande moteur
   BaseServo.write(pot1_cmd);
-  delay(10);
+  delay(50);
 }
