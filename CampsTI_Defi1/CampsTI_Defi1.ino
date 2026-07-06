@@ -38,3 +38,13 @@ void loop() {
   BaseServo.write(pot1_cmd);
   delay(50);
 }
+
+
+/*
+Mission supplémentaire : Ajoute l'épaule et le coude !
+
+Maintenant que tu as réussi à faire bouger la base, ton objectif est de modifier ce
+code pour ajouter 2 autres potentiomètres (POT_EPAULE_PIN sur la broche
+1, et POT_COUDE_PIN sur la broche 3). Sers-toi de l’exemple de la base pour
+déclarer tes moteurs, les attacher dans le Setup, et lire leurs valeurs dans la Loop !
+*/
