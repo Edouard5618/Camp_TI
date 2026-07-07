@@ -4,7 +4,10 @@
 
 // Déclaration des PINs utilisées (voir schéma électrique)
 #define POT_BASE_PIN 0
-#define SERVO_BASE_PIN 5
+#define SERVO_BASE_PIN 6
+#define SERVO_2 
+#define SERVO_3
+#define SERVO_4
 
 // Définition de l'objet Servo pour la base
 Servo BaseServo;
